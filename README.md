@@ -1,135 +1,129 @@
-lright. I’m going to fix this cleanly and decisively.
-Below is a FULL README.md that WILL render images on GitHub if (and only if) your folder structure is exactly:
+# Aproposdrive AWS & DevOps Assignment
 
-aproposdrive-aws-devops-assignment/
-├── app/
-│   ├── app.py
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── requirements.txt
-│   └── templates/
-│       ├── index.html
-│       └── success.html
-├── screenshots/
-│   ├── ss1.png
-│   ├── ss2.png
-│   ├── ss3.png
-│   └── ...
-│   └── ss22.png
-└── README.md
+This repository contains my submission for the **AWS & DevOps Intern assignment** provided by **Aproposdrive Technologies Pvt. Ltd.**
 
+The assignment was completed step by step as per the given task flow, starting from application development to AWS deployment, load balancing, auto scaling, and basic cost optimization.
 
-If images still don’t open after this, the problem is NOT markdown — it’s either:
+---
 
-wrong folder name (Screenshots vs screenshots)
+## Task 1: Application (Frontend + Backend + Database)
 
-wrong file name (ss1.PNG vs ss1.png)
+I created a simple Flask-based user registration application.  
+The application collects user details and stores them in a MySQL database.
 
-or images not pushed
+### Application project structure (local system)
+![SS1](screenshots/ss1.png)
 
-No excuses. Now paste THIS EXACT FILE as README.md.
+### User registration page
+![SS2](screenshots/ss2.png)
 
-Aproposdrive AWS & DevOps Assignment
-Overview
+### Form submission success page
+![SS3](screenshots/ss3.png)
 
-This repository contains my submission for the AWS & DevOps Intern assignment by Aproposdrive Technologies.
-The goal was to build a simple application, containerize it using Docker, deploy it on AWS EC2, and configure load balancing and auto scaling with cost optimization.
+### Data stored successfully in MySQL database
+![SS4](screenshots/ss4.png)
 
-All steps were executed manually and documented with screenshots.
+---
 
-Task 1: Application (Frontend + Backend + Database)
+## Task 2: Docker
 
-I created a simple Flask-based user registration application with a MySQL database.
-The application accepts user input (name and email) and stores it in the database.
+The application and database were containerized using Docker and Docker Compose.  
+Required ports were exposed and containers were verified to be running.
 
-Project structure on local system
+### Docker image created
+![SS5](screenshots/ss5.png)
 
-User registration page
+### Running containers (`docker ps`)
+![SS6](screenshots/ss6.png)
 
-Form submission success page
+### Docker Compose configuration
+![SS7](screenshots/ss7.png)
 
-Data successfully stored in MySQL database
+---
 
-Task 2: Dockerization
+## Task 3: AWS EC2 Deployment
 
-The application and database were containerized using Docker and Docker Compose.
-Ports were exposed correctly, and containers were verified to be running.
+A cost-optimized EC2 instance was launched and Docker was installed.  
+The Dockerized application was deployed on the EC2 instance.
 
-Docker image created
+### EC2 instance running
+![SS8](screenshots/ss8.png)
 
-Running containers using docker ps
+### SSH into EC2 instance
+![SS9](screenshots/ss9.png)
 
-Docker Compose configuration
+### Docker and Docker Compose installed on EC2
+![SS10](screenshots/ss10.png)
 
-Task 3: AWS EC2 Deployment
+### Application directory structure on EC2
+![SS11](screenshots/ss11.png)
 
-A cost-optimized EC2 instance was launched and Docker was installed.
-The application containers were then run on the EC2 instance.
+### Docker containers running on EC2
+![SS13](screenshots/ss13.png)
 
-EC2 instance running
+---
 
-SSH access to EC2 instance
+## Task 4: Application Access
 
-Docker and Docker Compose installed on EC2
+The application was accessed using the **EC2 public IP address**.
 
-Application directory structure on EC2
+### Application accessible via public IP
+![SS14](screenshots/ss14.png)
 
-Docker containers running on EC2
+---
 
-Task 4: Application Access
+## Task 5: Load Balancer & Auto Scaling
 
-The application was accessed using the EC2 public IP address.
+An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured to distribute traffic and maintain availability.
 
-Application accessible via EC2 public IP
+### Code pushed to GitHub repository
+![SS15](screenshots/ss15.png)
 
-Task 5: Load Balancer & Auto Scaling
+### Application Load Balancer created
+![SS16](screenshots/ss16.png)
 
-An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured to distribute traffic and ensure high availability.
+### Load Balancer listener configuration
+![SS17](screenshots/ss17.png)
 
-GitHub repository pushed
+### Auto Scaling Group created
+![SS18](screenshots/ss18.png)
 
-Application Load Balancer created
+### Auto Scaling instance running
+![SS19](screenshots/ss19.png)
 
-Load Balancer listener configuration
+### Target group configuration
+![SS20](screenshots/ss20.png)
 
-Auto Scaling Group created
+### Free-tier eligible instance type (t2.micro)
+![SS21](screenshots/ss21.png)
 
-Auto Scaling instance running
+### Desired capacity set to 1
+![SS22](screenshots/ss22.png)
 
-Target group configuration
+---
 
-Free-tier eligible instance type (t2.micro)
+## Task 6: Cost Optimization
 
-Desired capacity set to 1
+- Free-tier eligible instance type (t2.micro)
+- Desired capacity kept at minimum (1)
+- Auto Scaling enabled to avoid over-provisioning
+- Docker used to reduce resource usage
 
-Task 6: Cost Optimization
+---
 
-Free-tier eligible EC2 instance type used (t2.micro)
+## Task 7: Troubleshooting (Manual Explanation)
 
-Desired capacity kept at 1
+- When the application was not accessible, security group rules were verified to allow required ports.
+- When containers were running but the port was unreachable, Docker port mappings were checked using `docker ps`.
+- When the target group showed unhealthy status, the application was tested locally on the instance using `curl localhost:5000`.
 
-Auto Scaling enabled to avoid over-provisioning
+---
 
-Docker used to minimize resource usage
+## Conclusion
 
-Task 7: Troubleshooting
+This assignment helped me gain hands-on experience with AWS EC2, Docker, Load Balancer, Auto Scaling, and real-world troubleshooting.  
+All tasks were completed manually following the provided requirements.
 
-When the application was not accessible, I verified EC2 security groups and ensured port 5000 was allowed.
+---
 
-When the container was running but the port was unreachable, I checked Docker port mappings using docker ps.
-
-When the target group showed unhealthy, I SSHed into the instance and verified the application response using curl localhost:5000.
-
-Deliverables
-
-Complete working setup
-
-Source code
-
-Screenshots for every major step
-
-Step-by-step execution documentation
-
-Final Notes
-
-This assignment was completed manually to understand real-world AWS and DevOps workflows, including deployment issues and troubleshooting steps.
+**Repository submitted as per instructions.**
