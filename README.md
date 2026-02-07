@@ -1,55 +1,56 @@
 # Aproposdrive AWS & DevOps Assignment
 
-This repository contains my submission for the **AWS & DevOps Intern assignment** provided by **Aproposdrive Technologies Pvt. Ltd.**
+This repository contains my submission for the **AWS & DevOps Intern Assignment** shared by **Aproposdrive Technologies Pvt. Ltd.**
 
-The assignment was completed step by step as per the given task flow, starting from application development to AWS deployment, load balancing, auto scaling, and basic cost optimization.
+I completed this assignment step by step by following the task instructions provided in the mail.  
+The goal was to deploy a simple application using Docker and AWS services and explain the setup clearly with screenshots.
 
 ---
 
-## Task 1: Application (Frontend + Backend + Database)
+## Task 1: Application Setup
 
-I created a simple Flask-based user registration application.  
-The application collects user details and stores them in a MySQL database.
+For the application, I created a simple **Flask-based user registration app**.  
+The frontend collects user details and the backend stores the data in a **MySQL database**.
 
-### Application project structure (local system)
+### Project structure on local system
 ![SS1](screenshots/ss1.png)
 
 ### User registration page
 ![SS2](screenshots/ss2.png)
 
-### Form submission success page
+### Form submitted successfully
 ![SS3](screenshots/ss3.png)
 
-### Data stored successfully in MySQL database
+### User data stored in MySQL database
 ![SS4](screenshots/ss4.png)
 
 ---
 
-## Task 2: Docker
+## Task 2: Dockerization
 
-The application and database were containerized using Docker and Docker Compose.  
-Required ports were exposed and containers were verified to be running.
+The application and database were containerized using **Docker** and **Docker Compose**.  
+Both containers were connected using a common Docker network and required ports were exposed.
 
 ### Docker image created
 ![SS5](screenshots/ss5.png)
 
-### Running containers (`docker ps`)
+### Running containers using Docker
 ![SS6](screenshots/ss6.png)
 
-### Docker Compose configuration
+### Docker Compose file used for the setup
 ![SS7](screenshots/ss7.png)
 
 ---
 
-## Task 3: AWS EC2 Deployment
+## Task 3: Deployment on AWS EC2
 
-A cost-optimized EC2 instance was launched and Docker was installed.  
-The Dockerized application was deployed on the EC2 instance.
+A **free-tier eligible EC2 instance** was launched.  
+Docker and Docker Compose were installed on the instance and the application was deployed using Docker Compose.
 
 ### EC2 instance running
 ![SS8](screenshots/ss8.png)
 
-### SSH into EC2 instance
+### SSH access to EC2 instance
 ![SS9](screenshots/ss9.png)
 
 ### Docker and Docker Compose installed on EC2
@@ -58,23 +59,25 @@ The Dockerized application was deployed on the EC2 instance.
 ### Application directory structure on EC2
 ![SS11](screenshots/ss11.png)
 
-### Docker containers running on EC2
+### Containers running on EC2
 ![SS13](screenshots/ss13.png)
 
 ---
 
 ## Task 4: Application Access
 
-The application was accessed using the **EC2 public IP address**.
+After deployment, the application was accessed using the **EC2 public IP address** to confirm it was working correctly.
 
-### Application accessible via public IP
+### Application accessed using public IP
 ![SS14](screenshots/ss14.png)
 
 ---
 
-## Task 5: Load Balancer & Auto Scaling
+## Task 5: Load Balancer and Auto Scaling
 
-An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured to distribute traffic and maintain availability.
+To improve availability, an **Application Load Balancer (ALB)** and **Auto Scaling Group (ASG)** were configured.
+
+The application code was pushed to GitHub and used during the deployment.
 
 ### Code pushed to GitHub repository
 ![SS15](screenshots/ss15.png)
@@ -88,13 +91,13 @@ An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured 
 ### Auto Scaling Group created
 ![SS18](screenshots/ss18.png)
 
-### Auto Scaling instance running
+### EC2 instance launched by Auto Scaling Group
 ![SS19](screenshots/ss19.png)
 
 ### Target group configuration
 ![SS20](screenshots/ss20.png)
 
-### Free-tier eligible instance type (t2.micro)
+### Free-tier eligible instance type selected
 ![SS21](screenshots/ss21.png)
 
 ### Desired capacity set to 1
@@ -104,26 +107,30 @@ An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured 
 
 ## Task 6: Cost Optimization
 
-- Free-tier eligible instance type (t2.micro)
-- Desired capacity kept at minimum (1)
-- Auto Scaling enabled to avoid over-provisioning
-- Docker used to reduce resource usage
+To keep the setup cost-effective:
+
+- Free-tier eligible EC2 instance was used
+- Desired capacity was kept at **1**
+- Auto Scaling was enabled to avoid unnecessary resource usage
+- Docker was used to reduce system overhead
 
 ---
 
-## Task 7: Troubleshooting (Manual Explanation)
+## Task 7: Troubleshooting Explanation
 
-- When the application was not accessible, security group rules were verified to allow required ports.
-- When containers were running but the port was unreachable, Docker port mappings were checked using `docker ps`.
+During the setup, the following issues were faced and resolved:
+
+- When the application was not accessible, security group inbound rules were checked.
+- When containers were running but the port was not reachable, Docker port mappings were verified.
 - When the target group showed unhealthy status, the application was tested locally on the instance using `curl localhost:5000`.
 
 ---
 
 ## Conclusion
 
-This assignment helped me gain hands-on experience with AWS EC2, Docker, Load Balancer, Auto Scaling, and real-world troubleshooting.  
-All tasks were completed manually following the provided requirements.
+This assignment helped me understand how Dockerized applications are deployed on AWS using EC2, Load Balancer, and Auto Scaling.  
+All tasks were completed manually as per the assignment instructions and verified using screenshots.
 
 ---
 
-**Repository submitted as per instructions.**
+**Assignment completed and submitted as requested.**
