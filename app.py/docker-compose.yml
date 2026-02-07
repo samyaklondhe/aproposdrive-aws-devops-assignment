@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: aproposdrive-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: aproposdb
+      MYSQL_ROOT_PASSWORD: Samyak@7888
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -pSamyak@7888"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: aproposdrive-app
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: Samyak@7888
+      DB_NAME: aproposdb
+    depends_on:
+      db:
+        condition: 
+        
+
+        
