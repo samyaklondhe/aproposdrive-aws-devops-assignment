@@ -1,193 +1,135 @@
+lright. I’m going to fix this cleanly and decisively.
+Below is a FULL README.md that WILL render images on GitHub if (and only if) your folder structure is exactly:
+
+aproposdrive-aws-devops-assignment/
+├── app/
+│   ├── app.py
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── requirements.txt
+│   └── templates/
+│       ├── index.html
+│       └── success.html
+├── screenshots/
+│   ├── ss1.png
+│   ├── ss2.png
+│   ├── ss3.png
+│   └── ...
+│   └── ss22.png
+└── README.md
+
+
+If images still don’t open after this, the problem is NOT markdown — it’s either:
+
+wrong folder name (Screenshots vs screenshots)
+
+wrong file name (ss1.PNG vs ss1.png)
+
+or images not pushed
+
+No excuses. Now paste THIS EXACT FILE as README.md.
+
 Aproposdrive AWS & DevOps Assignment
+Overview
 
-This repository contains my submission for the AWS & DevOps Intern assignment provided by Aproposdrive Technologies Pvt. Ltd.
-The goal of this assignment was to design, containerize, deploy, and scale a simple application on AWS using best practices while keeping the setup cost-optimized.
+This repository contains my submission for the AWS & DevOps Intern assignment by Aproposdrive Technologies.
+The goal was to build a simple application, containerize it using Docker, deploy it on AWS EC2, and configure load balancing and auto scaling with cost optimization.
 
-Task 1 – Application Setup (Frontend + Backend + Database)
+All steps were executed manually and documented with screenshots.
 
-I created a simple Flask-based web application with a user registration form.
-The application stores submitted user data in a MySQL database.
+Task 1: Application (Frontend + Backend + Database)
 
-The project includes:
+I created a simple Flask-based user registration application with a MySQL database.
+The application accepts user input (name and email) and stores it in the database.
 
-Flask backend
+Project structure on local system
 
-HTML frontend
+User registration page
 
-MySQL database connection
+Form submission success page
 
-Project structure on local machine:
+Data successfully stored in MySQL database
 
-Screenshot:
+Task 2: Dockerization
 
+The application and database were containerized using Docker and Docker Compose.
+Ports were exposed correctly, and containers were verified to be running.
 
-Task 2 – Dockerization
+Docker image created
 
-Docker was used to containerize both the Flask application and the MySQL database.
+Running containers using docker ps
 
-Steps performed:
+Docker Compose configuration
 
-Created a Dockerfile for the Flask app
+Task 3: AWS EC2 Deployment
 
-Created a docker-compose.yml to run app and database together
+A cost-optimized EC2 instance was launched and Docker was installed.
+The application containers were then run on the EC2 instance.
 
-Exposed required ports
+EC2 instance running
 
-Verified containers restart automatically
+SSH access to EC2 instance
 
-Docker image creation:
+Docker and Docker Compose installed on EC2
 
-Screenshot:
+Application directory structure on EC2
 
+Docker containers running on EC2
 
-Running containers check:
+Task 4: Application Access
 
-Screenshot:
+The application was accessed using the EC2 public IP address.
 
+Application accessible via EC2 public IP
 
-Task 3 – AWS EC2 Deployment
+Task 5: Load Balancer & Auto Scaling
 
-An EC2 instance was launched using a free-tier eligible instance type.
+An Application Load Balancer (ALB) and Auto Scaling Group (ASG) were configured to distribute traffic and ensure high availability.
 
-The following actions were performed:
+GitHub repository pushed
 
-Launched EC2 instance
+Application Load Balancer created
 
-Connected using SSH
+Load Balancer listener configuration
 
-Installed Docker and Docker Compose
+Auto Scaling Group created
 
-Copied application files to EC2
+Auto Scaling instance running
 
-Ran containers using Docker Compose
+Target group configuration
 
-EC2 instance running:
+Free-tier eligible instance type (t2.micro)
 
-Screenshot:
+Desired capacity set to 1
 
+Task 6: Cost Optimization
 
-SSH connection into EC2:
+Free-tier eligible EC2 instance type used (t2.micro)
 
-Screenshot:
+Desired capacity kept at 1
 
+Auto Scaling enabled to avoid over-provisioning
 
-Docker & Docker Compose versions on EC2:
+Docker used to minimize resource usage
 
-Screenshot:
+Task 7: Troubleshooting
 
+When the application was not accessible, I verified EC2 security groups and ensured port 5000 was allowed.
 
-Project directory structure on EC2:
+When the container was running but the port was unreachable, I checked Docker port mappings using docker ps.
 
-Screenshot:
+When the target group showed unhealthy, I SSHed into the instance and verified the application response using curl localhost:5000.
 
+Deliverables
 
-Task 4 – Application Access
+Complete working setup
 
-The application was successfully accessed using the EC2 public IP address.
+Source code
 
-Application landing page:
+Screenshots for every major step
 
-Screenshot:
+Step-by-step execution documentation
 
+Final Notes
 
-The MySQL database runs inside a Docker container, and data submitted through the UI is stored inside the database container.
-
-Task 5 – Load Balancer & Auto Scaling
-
-To make the setup scalable and production-like, the following AWS services were configured:
-
-Application Load Balancer (ALB)
-
-Target Group
-
-Launch Template
-
-Auto Scaling Group (ASG)
-
-The application listens on port 5000, and the ALB routes traffic to healthy instances.
-
-Application Load Balancer created:
-
-Screenshot:
-
-
-ALB Listener configuration:
-
-Screenshot:
-
-
-Auto Scaling Group created:
-
-Screenshot:
-
-
-Auto Scaling EC2 instance running:
-
-Screenshot:
-
-
-Target Group health check status:
-
-Screenshot:
-
-
-Free-tier instance type used (t2.micro):
-
-Screenshot:
-
-
-Desired capacity set to 1 to avoid over-provisioning:
-
-Screenshot:
-
-
-Task 6 – Cost Optimization
-
-Cost optimization was ensured by:
-
-Using free-tier eligible instance types
-
-Keeping desired capacity to 1
-
-Using Auto Scaling to scale only when required
-
-Avoiding unnecessary AWS resources
-
-Task 7 – Troubleshooting (Explanation)
-
-During the setup, the following issues were encountered and resolved:
-
-1. Application not accessible
-This happened when security groups did not allow inbound traffic on port 5000.
-Fix: Updated security group rules to allow traffic from ALB and public access where required.
-
-2. Container running but port not reachable
-Containers were running, but the application was not accessible externally.
-Fix: Ensured correct port mapping (5000:5000) and verified container logs.
-
-3. ALB health check failures
-Initial health check failures occurred because the application took time to start.
-Fix: Adjusted health check path and allowed sufficient warm-up time.
-
-Git Repository
-
-All application code, Docker configuration files, and screenshots are stored in this repository for verification.
-
-Git push confirmation:
-
-Screenshot:
-
-
-Conclusion
-
-This assignment demonstrates:
-
-Application containerization using Docker
-
-Deployment on AWS EC2
-
-Load balancing and auto scaling using AWS services
-
-Cost optimization and troubleshooting skills
-
-The setup follows a clean, practical approach suitable for real-world DevOps workflows.
+This assignment was completed manually to understand real-world AWS and DevOps workflows, including deployment issues and troubleshooting steps.
