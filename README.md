@@ -56,8 +56,11 @@ Docker and Docker Compose were installed on the instance and the application was
 ### Docker and Docker Compose installed on EC2
 ![SS10](screenshots/ss10.png)
 
-### Application directory structure on EC2
+### Application Deploy on EC2 using SCP
 ![SS11](screenshots/ss11.png)
+
+### Application directory structure on EC2
+![SS12](screenshots/ss12.png)
 
 ### Containers running on EC2
 ![SS13](screenshots/ss13.png)
@@ -128,9 +131,4 @@ During the setup, the following issues were faced and resolved:
 
 ## Conclusion
 
-This assignment helped me understand how Dockerized applications are deployed on AWS using EC2, Load Balancer, and Auto Scaling.  
-All tasks were completed manually as per the assignment instructions and verified using screenshots.
-
----
-
-**Assignment completed and submitted as requested.**
+This assignment helped me understand how Dockerized applications are deployed on AWS using EC2, Load Balancer and Auto Scaling.  
