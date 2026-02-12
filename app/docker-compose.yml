@@ -24,8 +24,7 @@ services:
       DB_PASSWORD: Samyak@7888
       DB_NAME: aproposdb
     depends_on:
-      db:
-        condition: 
+      - db
         
 
         
